@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <!-- Title header, reset/style, bootstrap Lux theme -->
+    <!-- Post edit. Needed scipt for jquery and bootstrap.Java -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Diamonds</title>
+    <!-- jQueattitudery library  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Stlying + Lux -->
+    <!-- <link rel="stylesheet" href="reset.css"> -->
+    <link rel="stylesheet" href="style.css">
+    <link href="bootstrap.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div class ="jumbotron" style="margin-bottom:0px;">
+      <h1> Machine Learning with Diamonds!</h1>
+      <p> Analysis of Price & Quality</p>
+    </div>
+    <!-- Options: bg-primary, bg-succes, bg-warning, bg-info, bg-danger, bg-dark -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+
+      <!-- Adding Button -->
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="collapse_target">
+        <!-- <li class="navbar active">
+          <a class="nav-link" href="index.html.html"> Home </a>
+        </li> -->
+      <!-- <span class ="navbar-text"> Latitude </span> -->
+      
+      <ul class = "navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#"> 
+            Prediction Models 
+            <span class="caret"></span>
+          </a>
+        <div class="dropdown-menu" aria-labelledby="dropdown_target">
+          <a class ="dropdown-item" href="./pages/Price-by-UserInputCharacteristics.html">Price by User Input Characteristics</a>
+          <div class="dropdown-divider"></div>
+          <a class ="dropdown-item" href="./pages/Characteristics-by-UserInputPrice.html">Characteristics by User Input Price</a>
+          <div class="dropdown-divider"></div>
+          <!-- <a class ="dropdown-item" href=""> Example 3 </a>
+          <div class="dropdown-divider"></div>
+          <a class ="dropdown-item" href=""> Example 4 </a> -->
+
+
+        </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html"> Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="data.html"> Data </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="comparisons.html"> Comparisons </a>
+        </li>
+    
+      </ul>
+      </div>
+    </nav>
+
+    <body>
+      <div class="login">
+      <h1>Predict Diamond Price</h1>
+     <!-- Form to enter new data for predictions  -->
+         <form action="{{ url_for('predict')}}"method="POST">
+           <input type="text" name="Carat Weight" placeholder="Carat Weight" required="required" /><br>
+          <input type="text" name="Cut" placeholder="Cut" required="required" /><br>
+             <input type="text" name="Color" placeholder="Color" required="required" /><br>
+             <input type="text" name="Clarity" placeholder="Clarity" required="required" /><br>
+             <input type="text" name="Polish" placeholder="Polish" required="required" /><br>
+             <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+         </form>
+     <br>
+        <br>
+      </div>
+      <!-- {{pred}} -->
+     </body>
+     </body>
+     </html>
