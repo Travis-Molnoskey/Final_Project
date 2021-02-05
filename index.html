@@ -66,20 +66,38 @@
         <li class="nav-item">
           <a class="nav-link" href="comparisons.html"> Comparisons </a>
         </li>
-        
-
-
-      
     
       </ul>
       </div>
     </nav>
+
+    <body>
+      <div class="login">
+      <h1>Predict Diamond Price</h1>
+     <!-- Form to enter new data for predictions  -->
+         <form action="{{ url_for('predict')}}"method="POST">
+           <input type="text" name="Carat Weight" placeholder="Carat Weight" required="required" /><br>
+          <input type="text" name="Cut" placeholder="Cut" required="required" /><br>
+             <input type="text" name="Color" placeholder="Color" required="required" /><br>
+             <input type="text" name="Clarity" placeholder="Clarity" required="required" /><br>
+             <input type="text" name="Polish" placeholder="Polish" required="required" /><br>
+             <input type="text" name="Symmetry" placeholder="Symmetry" required="required" /><br>
+             <input type="text" name="Report" placeholder="Report" required="required" /><br>
+             <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+         </form>
+     <br>
+        <br>
+      </div>
+      <!-- {{pred}} -->
+     </body>
+
     <div class='container'>
         <div class="row">
             <div class="col-xs-7 col-sm-6 col-lg-8">
                 <div class="page-text">
-                    <div style ="position: absolute; left:-265px; top:5px;">
-                    <h1>Official Scales For Diamonds</h1>
+                    <div style ="position: absolute; left:0px; top:5px;">
+                    <h1>Official </h1>
+                    <h1>Scales For Diamonds</h1>
                     <hr>
                     <img src="images/GIA-diamond-grading-scale.jpg" 
                         alt="Diamond Grading Scale" 
