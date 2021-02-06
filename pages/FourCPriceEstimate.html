@@ -6,7 +6,7 @@
     <!-- Post edit. Needed scipt for jquery and bootstrap.Java -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Full Characteristics Price Estimate</title>
+    <title>Four C's Price Estimator</title>
     <!-- jQueattitudery library  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
@@ -16,10 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <!-- github top level scripts required -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
     <!-- Stlying + Lux -->
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -51,7 +48,7 @@
               <span class="caret"></span>
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdown_target">
-              <a class ="dropdown-item" href="../pages/FullCharacteristicPriceEstimate.html">Full Characteristics Price Estimate</a>
+              <a class ="dropdown-item" href="../pages/FourCPriceEstimate.html">Four C's Price Estimator</a>
               <div class="dropdown-divider"></div>
               <a class ="dropdown-item" href="#">Next Model Estimator</a>
               <div class="dropdown-divider"></div>
@@ -68,7 +65,7 @@
     </nav> <!--end navigation bar-->
   
     <div class="container">
-      <h2>Full Characteristics Price Estimate</h2>
+      <h2>Four C's Price Estimator</h2>
       <hr>
       <p>
         Ever wonder how much that betrothal rock, girl's best friend, or bling is going to cost you?
@@ -86,10 +83,10 @@
           <div class="panel-heading">Reference Images</div>
           <hr>
           <img src="../images/GIA-diamond-grading-scale.jpg" alt="GIA Grading Scale">
-          <hr>
+          <!-- <hr>
           <img src="../images/table-depth-length-width.png" alt="Length and Width">
           <hr>
-          <img src="../images/table-depth-girdle-pavilion-crown-star.jpg" alt="Table Width and Depth">
+          <img src="../images/table-depth-girdle-pavilion-crown-star.jpg" alt="Table Width and Depth"> -->
         </div>
         <div class="col-md panel panel-default">
           <div class="panel-heading">Select Your Characteristics</div>
@@ -102,11 +99,11 @@
                   <input class='form-control' id='carat_weight'
                     type='number' placeholder='Input Carat Weight [0-10]'
                     min='0' max='10' step='0.01'
-                    required='required'>
+                    required='required' onchange='updateUserInputFilters()'>
                 </li> <!--end carat weight-->
                 <li class='filter list-group-item'>
                   <label for='cut'>Cut</label>
-                  <select class='form-control' id='cut' type='text' required='required'>
+                  <select class='form-control' id='cut' type='text' required='required' onchange='updateUserInputFilters()'>
                     <option value="" selected disabled>Select a Cut</option>
                     <option>Ideal</option>
                     <option>Premium</option>
@@ -117,7 +114,7 @@
                 </li> <!--cut input-->
                 <li class='filter list-group-item'>
                   <label for='color'>Color</label>
-                  <select class='form-control' id='color' type='text' required='required'>
+                  <select class='form-control' id='color' type='text' required='required' onchange='updateUserInputFilters()'>
                     <option value="" selected disabled>Select a Color</option>
                     <option>D</option>
                     <option>E</option>
@@ -146,7 +143,7 @@
                 </li> <!--end color-->
                 <li class='filter list-group-item'>
                   <label for='clarity'>Clarity</label>
-                  <select class='form-control' id='clarity' type='text' required='required'>
+                  <select class='form-control' id='clarity' type='text' required='required' onchange='updateUserInputFilters()'>
                     <option value="" selected disabled>Select a Clarity</option>
                     <option value="IF">Internally Flawless</option>
                     <option>VVS1</option>
@@ -160,39 +157,38 @@
                     <option>I3</option>
                   </select>
                 </li> <!--end clarity-->
-                <li class='filter list-group-item'>
+                <!-- <li class='filter list-group-item'>
                   <label for='x_length'>X-Length</label>
                   <input class='form-control' id='x_length'
                     type='number' placeholder='Input Length [0-15]'
                     min='0' max='15' step='0.01'
-                    required='required'>
-                </li> <!--end x length-->
-                <li class='filter list-group-item'>
+                    required='required' onchange='updateUserInputFilters()'>
+                </li> end x length -->
+                <!-- <li class='filter list-group-item'>
                   <label for='y_width'>Y-Width</label>
                   <input class='form-control' id='y_width'
                   type='number' placeholder='Input Width [0-75]'
                   min='0' max='75' step='0.01'
-                  required='required'>
-                </li> <!--end y width-->
-                <li class='filter list-group-item'>
+                  required='required' onchange='updateUserInputFilters()'>
+                </li> end y width -->
+                <!-- <li class='filter list-group-item'>
                   <label for='z_depth'>Z-Depth</label>
                   <input class='form-control' id='z_depth'
                   type='number' placeholder='Input Depth [0-40]'
                   min='0' max='40' step='0.01'
-                  required='required'>
-                </li> <!--end z depth-->
-                <li class='filter list-group-item'>
+                  required='required' onchange='updateUserInputFilters()'>
+                </li> end z depth -->
+                <!-- <li class='filter list-group-item'>
                   <label for='depthPercent'>Total Depth Percentage</label>
-                  <input disabled class='form-control' id='depthPercent'
-                    type='number' placeholder='tempPlaceHolder Autocalculate'>
-                </li> <!--end depth-->
-                <li class='filter list-group-item'>
+                  <input disabled class='form-control' id='depthPercent' type='number'>
+                </li> end depth -->
+                <!-- <li class='filter list-group-item'>
                   <label for='table_width'>Table Width</label>
                   <input class='form-control' id='table_width'
                   type='number' placeholder='Input Table Width [0-100]'
                   min='0' max='40' step='0.01'
-                  required='required'>
-                </li> <!--end table width-->
+                  required='required' onchange='updateUserInputFilters()'>
+                </li> end table width -->
                 <button id="filter-btn" type="button" class="btn btn-default btn-block btn-primary">Predict Diamond Price</button>
               </div> <!--end form-group class-->
             </form>
