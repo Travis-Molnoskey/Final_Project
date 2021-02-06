@@ -6,6 +6,9 @@ import numpy as np
 import json
 
 app = Flask(__name__)
+modelfile = 'model/finalized_model.pickle'
+model = p.load(open(modelfile, 'rb'))
+
 
 # render default webpage
 @app.route('/')
