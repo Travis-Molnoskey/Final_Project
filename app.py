@@ -1,9 +1,9 @@
 from flask import Flask,request, url_for, redirect, render_template, jsonify
 
 import pandas as pd
-import pickle
+import pickle as p
 import numpy as np
-Import json
+import json
 
 app = Flask(__name__)
 
@@ -15,6 +15,6 @@ def makecalc():
 
 
 if __name__ == '__main__':
-    modelfile = 'models/final_prediction.pickle'
+    modelfile = 'model/finalized_model.pickle'
     model = p.load(open(modelfile, 'rb'))
     app.run(debug=True, host = '0.0.0.0')
