@@ -1,0 +1,24 @@
+.jumbotron p{
+    margin-bottom: 8px;
+}
+
+.container {
+    padding-top: 30px;
+    padding-bottom: 15x;
+}
+
+h2 {
+    padding-top: 15px;
+}
+
+.main-img-box {
+    text-align: center;
+}
+
+.main-img-box, img{
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
