@@ -16,7 +16,7 @@ h2 {
     text-align: center;
 }
 
-.main-img-box, img{
+.main-img-box, img {
     display: block;
     width: 100%;
     height: auto;
@@ -24,8 +24,7 @@ h2 {
     margin-right: auto;
 }
 
-img
-{
+.slideshow-img {
    width: 60%;
    margin: auto;
 }
