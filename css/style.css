@@ -4,8 +4,7 @@
 
 .container {
     padding-top: 30px;
-    padding-bottom: 15px;
-    /* margin-bottom: 16px; */
+    padding-bottom: 15x;
 }
 
 h2 {
@@ -16,7 +15,7 @@ h2 {
     text-align: center;
 }
 
-.main-img-box, img {
+.main-img-box, img{
     display: block;
     width: 100%;
     height: auto;
@@ -24,7 +23,14 @@ h2 {
     margin-right: auto;
 }
 
-.slideshow-img {
+img
+{
    width: 60%;
    margin: auto;
+}
+
+@media {
+    .navbar li a{
+    font-size:12px;
+    }
 }
