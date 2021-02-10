@@ -22,17 +22,14 @@
     <link rel="stylesheet" href="../css/style.css">
     <link href="bootstrap.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
-    <!-- Latest compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-    <!--THIS ONE IS MESSING WITT THE NAVBAR AND JUMBOTRON-->  <!-- Latest compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-    <!-- Optional theme -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
-    <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
 
   <body>
+    <div class ="jumbotron" style="margin-bottom:0px;">
+      <h1>Machine Learning with Diamonds!</h1>
+      <p>Analysis of Price & Quality</p>
+    </div>
 
     <!-- Options: bg-primary, bg-succes, bg-warning, bg-info, bg-danger, bg-dark -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -88,12 +85,12 @@
       <!-- The slideshow -->
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../images/all_carat_price.png" alt="Los Angeles">
+          <img class="slideshow-img" src="../images/all_carat_price.png" alt="Los Angeles">
         </div>
         <div class="carousel-item">
-          <img src="../images/all_lnr.png" alt="Chicago">
+          <img class="slideshow-img" src="../images/all_lnr.png" alt="Chicago">
         </div>
-      </div>
+      </div> <!-- end slideshow images div-->
     
       <!-- Left and right controls -->
       <a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -103,11 +100,9 @@
         <span class="carousel-control-next-icon"></span>
       </a>
     
-    </div>
+    </div> <!-- end carousel div-->
       
-    JS Scripts Here
-    <!-- <script src='../js/filter_clean.js'></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
-
+    <!-- JS Scripts Here -->
+    
   </body>  
 </html>
