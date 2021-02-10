@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
   </head>
 
-  <body>
+  <body onload="load_database()">
     <div class ="jumbotron" style="margin-bottom:0px;">
       <h1>Machine Learning with Diamonds!</h1>
       <p>Analysis of Price & Quality</p>
@@ -49,7 +49,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdown_target">
               <a class ="dropdown-item" href="./pages/FourCPriceEstimate.html">Four C's Price Estimator</a>
               <div class="dropdown-divider"></div>
-              <a class ="dropdown-item" href="#">Next Model Estimator</a>
+              <a class ="dropdown-item" id="collapse_target" href="./pages/BestForPrice.html">Next Model Estimator</a>
               <div class="dropdown-divider"></div>
             </div>
           </li>

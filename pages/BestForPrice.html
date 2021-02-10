@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
   </head>
 
-  <body>
+  <body >
     <div class ="jumbotron" style="margin-bottom:0px;">
       <h1>Machine Learning with Diamonds!</h1>
       <p>Analysis of Price & Quality</p>
@@ -50,7 +50,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdown_target">
               <a class ="dropdown-item" href="../pages/FourCPriceEstimate.html">Four C's Price Estimator</a>
               <div class="dropdown-divider"></div>
-              <a class ="dropdown-item" href="../pages/BestForPrice.html">Next Model Estimator</a>
+              <a class ="dropdown-item" href="#">Next Model Estimator</a>
               <div class="dropdown-divider"></div>
             </div>
           </li>
@@ -65,15 +65,15 @@
     </nav> <!--end navigation bar-->
   
     <div class="container">
-      <h2>Four C's Price Estimator</h2>
+      <h2>Price Point Trait Estimator</h2>
       <hr>
       <p>
-        Ever wonder how much that betrothal rock, girl's best friend, or bling is going to cost you?
-          Let us help you estimate that with our machine learning model!
-          Just input the characteristics you're looking for and let the program do the rest.
+        Ever wonder how far your money will go when it comes to a diamond?
+          Let us help you see that with our database comparison!
+          Just input the price you want to spend and we will compare it to our database of over 50000 diamonds to find how far your price should go.
       </p>
       <p>
-        Choose your color, cut, clarity, and carat weight in the form below then submit!
+        Simply enter your price below and then submit!
       </p>
     </div> <!--end background info div-->
 
@@ -89,19 +89,21 @@
           <img src="../images/table-depth-girdle-pavilion-crown-star.jpg" alt="Table Width and Depth"> -->
         </div>
         <div class="col-md panel panel-default">
-          <div class="panel-heading">Select Your Characteristics</div>
+          <div class="panel-heading">Enter Your Price</div>
           <hr>
           <div class='pannel-body'>
             <form>
               <div class="form-group">
+
                 <li class='filter list-group-item'>
-                  <label for='carat_weight'>Carat Weight</label>
-                  <input class='form-control' id='carat_weight'
-                    type='number' placeholder='Input Carat Weight [0-10]'
-                    min='0' max='10' step='0.01'
-                    required='required' onchange='updateUserInputFilters()'>
+                  <label for='desired_price'>Price Point</label>
+                  <input class='form-control' id='desired_price'
+                    type='number' placeholder='Input Price Point (USD)'
+                    min='0' step='0.01'
+                    required='required' onchange='fetch_price()'>
                 </li> <!--end carat weight-->
-                <li class='filter list-group-item'>
+
+                <!-- <li class='filter list-group-item'>
                   <label for='cut'>Cut</label>
                   <select class='form-control' id='cut' type='text' required='required' onchange='updateUserInputFilters()'>
                     <option value="" selected disabled>Select a Cut</option>
@@ -111,8 +113,9 @@
                     <option>Good</option>
                     <option>Fair</option>
                   </select>
-                </li> <!--cut input-->
-                <li class='filter list-group-item'>
+                </li> cut input -->
+
+                <!-- <li class='filter list-group-item'>
                   <label for='color'>Color</label>
                   <select class='form-control' id='color' type='text' required='required' onchange='updateUserInputFilters()'>
                     <option value="" selected disabled>Select a Color</option>
@@ -125,7 +128,7 @@
                     <option>J</option>
                     <option>K</option>
                     <option>L</option>
-                    <option>M</option>
+                    <option>M</option> -->
                     <!-- <option>N</option>
                     <option>O</option>
                     <option>P</option>
@@ -139,8 +142,9 @@
                     <option>X</option>
                     <option>Y</option>
                     <option>Z</option> -->
-                  </select>
-                </li> <!--end color-->
+                  <!-- </select>
+                </li> end color-->
+<!-- 
                 <li class='filter list-group-item'>
                   <label for='clarity'>Clarity</label>
                   <select class='form-control' id='clarity' type='text' required='required' onchange='updateUserInputFilters()'>
@@ -156,7 +160,8 @@
                     <option>I2</option>
                     <option>I3</option>
                   </select>
-                </li> <!--end clarity-->
+                </li> end clarity -->
+
                 <!-- <li class='filter list-group-item'>
                   <label for='x_length'>X-Length</label>
                   <input class='form-control' id='x_length'
@@ -189,7 +194,7 @@
                   min='0' max='40' step='0.01'
                   required='required' onchange='updateUserInputFilters()'>
                 </li> end table width -->
-                <button id="filter-btn" type="button" class="btn btn-default btn-block btn-primary">Predict Diamond Price</button>
+                <button id="price-btn" type="button" class="btn btn-default btn-block btn-primary">Find my best Diamond!</button>
               </div> <!--end form-group class-->
             </form>
           </div>
@@ -197,7 +202,7 @@
 
         <div class='col-md'>
           <div class='prediction-result'>
-            <div class="panel-heading">Estimated Diamond Price</div>
+            <div class="panel-heading">Average Traits for your Price Points:</div>
             <hr>
             <!--{{pred}}-->
           </div>
@@ -205,8 +210,11 @@
       </div>
     </div> <!--end user input and result return container-->
       
+
     <!-- JS Scripts Here -->
-    <script src='../js/filter_clean.js'></script>
+    <script src='../js/close_estimate.js'></script>
 
   </body>  
+
+
 </html>
