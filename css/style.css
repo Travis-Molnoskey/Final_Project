@@ -25,9 +25,14 @@ h2 {
 }
 
 .slideshow-img {
-   width: 60%;
+   width: 55%;
    margin: auto;
 }
+
+.slideshow-imgs {
+    width: 40%;
+    margin: auto;
+ }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
