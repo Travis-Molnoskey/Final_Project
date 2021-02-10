@@ -4,7 +4,8 @@
 
 .container {
     padding-top: 30px;
-    padding-bottom: 15x;
+    padding-bottom: 15px;
+    /* margin-bottom: 16px; */
 }
 
 h2 {
