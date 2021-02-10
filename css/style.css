@@ -33,3 +33,7 @@ h2 {
 .carousel-control-next-icon {
     filter: invert(1);
 }
+
+.carousel-indicators {
+    filter: invert(1);
+}
