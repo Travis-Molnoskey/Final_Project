@@ -37,3 +37,9 @@ h2 {
 .carousel-indicators {
     filter: invert(1);
 }
+
+thead th {
+    font-size: 1em;
+    padding: 15px !important;
+    height: 15px;
+  }
