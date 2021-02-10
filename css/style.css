@@ -38,8 +38,8 @@ h2 {
     filter: invert(1);
 }
 
-thead th {
+thead, th {
     font-size: 1em;
     padding: 15px !important;
     height: 15px;
-  }
+}
