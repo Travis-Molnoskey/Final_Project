@@ -12,6 +12,22 @@ model = p.load(open(modelfile, 'rb'))
 def home():
     return render_template('FourCPriceEstimate.html')
 
+@app.route('/index.html')
+def index():
+    return render_template('index.html')
+
+@app.route('/comparison.html')
+def comparison():
+    return render_template('comparison.html')
+
+@app.route('/data_page.html')
+def datapage():
+    return render_template('data_page.html')
+
+@app.route('/NextModel.html')
+def nextmodel():
+    return render_template('NextModel.html')
+
 @app.route('/predict', methods=['POST'])
 def predict():
     int_features = [int(x) for x in request.form.values()]
