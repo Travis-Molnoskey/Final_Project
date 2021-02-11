@@ -1,28 +1,51 @@
-from flask import Flask,request, url_for, redirect, render_template, jsonify
-
-import pandas as pd
-import pickle as p
 import numpy as np
-import json
+from flask import Flask, request, jsonify, render_template
+import pickle as p
 
 app = Flask(__name__)
-modelfile = 'model/finalized_model.pickle'
+modelfile = '4c_rf.pickle'
 model = p.load(open(modelfile, 'rb'))
 
 
 # render default webpage
 @app.route('/')
 def home():
+    return render_template('FourCPriceEstimate.html')
+
+@app.route('/index.html')
+def index():
     return render_template('index.html')
 
-@app.route('/api/', methods=['POST'])
-def makecalc():
-    data = request.get_json()
-    prediction = np.array2string(model.predict(data))
-    return jsonify(prediction)
+@app.route('/comparison.html')
+def comparison():
+    return render_template('comparison.html')
+
+@app.route('/data_page.html')
+def datapage():
+    return render_template('data_page.html')
+
+@app.route('/NextModel.html')
+def nextmodel():
+    return render_template('NextModel.html')
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    int_features = [int(x) for x in request.form.values()]
+    final_features = [np.array(int_features)]
+    prediction = model.predict(final_features)
+    output = round(prediction[0],2)
+
+    return render_template('FourCPriceEstimate.html', prediction_text = output)
+
+@app.route('/results', methods=['POST'])
+def results():
+    data = request.get_json(force=True)
+    prediction = model.predict([np.array(list(data.values()))])
+    
+    output = prediction[0]
+
+    return jsonify(output)
 
 
 if __name__ == '__main__':
-    modelfile = 'model/finalized_model.pickle'
-    model = p.load(open(modelfile, 'rb'))
-    app.run(debug=True, host = '0.0.0.0')
+    app.run(debug=True)
