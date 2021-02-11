@@ -17,6 +17,8 @@
     <!-- github top level scripts required -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+    <!-- number library-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <!-- Stlying + Lux -->
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -104,65 +106,6 @@
                 </li> <!--end carat weight-->
 
                 <!-- <li class='filter list-group-item'>
-                  <label for='cut'>Cut</label>
-                  <select class='form-control' id='cut' type='text' required='required' onchange='updateUserInputFilters()'>
-                    <option value="" selected disabled>Select a Cut</option>
-                    <option>Ideal</option>
-                    <option>Premium</option>
-                    <option>Very Good</option>
-                    <option>Good</option>
-                    <option>Fair</option>
-                  </select>
-                </li> cut input -->
-
-                <!-- <li class='filter list-group-item'>
-                  <label for='color'>Color</label>
-                  <select class='form-control' id='color' type='text' required='required' onchange='updateUserInputFilters()'>
-                    <option value="" selected disabled>Select a Color</option>
-                    <option>D</option>
-                    <option>E</option>
-                    <option>F</option>
-                    <option>G</option>
-                    <option>H</option>
-                    <option>I</option>
-                    <option>J</option>
-                    <option>K</option>
-                    <option>L</option>
-                    <option>M</option> -->
-                    <!-- <option>N</option>
-                    <option>O</option>
-                    <option>P</option>
-                    <option>Q</option>
-                    <option>R</option>
-                    <option>S</option>
-                    <option>T</option>
-                    <option>U</option>
-                    <option>V</option>
-                    <option>W</option>
-                    <option>X</option>
-                    <option>Y</option>
-                    <option>Z</option> -->
-                  <!-- </select>
-                </li> end color-->
-<!-- 
-                <li class='filter list-group-item'>
-                  <label for='clarity'>Clarity</label>
-                  <select class='form-control' id='clarity' type='text' required='required' onchange='updateUserInputFilters()'>
-                    <option value="" selected disabled>Select a Clarity</option>
-                    <option value="IF">Internally Flawless</option>
-                    <option>VVS1</option>
-                    <option>VVS2</option>
-                    <option>VS1</option>
-                    <option>VS2</option>
-                    <option>SI1</option>
-                    <option>SI2</option>
-                    <option>I1</option>
-                    <option>I2</option>
-                    <option>I3</option>
-                  </select>
-                </li> end clarity -->
-
-                <!-- <li class='filter list-group-item'>
                   <label for='x_length'>X-Length</label>
                   <input class='form-control' id='x_length'
                     type='number' placeholder='Input Length [0-15]'
@@ -204,7 +147,15 @@
           <div class='prediction-result'>
             <div class="panel-heading">Average Traits for your Price Points:</div>
             <hr>
-            <!--{{pred}}-->
+              <table>
+                <thead>
+                  <tr><th>Trait</th><th>Average Value</th></tr>
+                  <tr><td>Carat</td><td id="carat_row"></td></tr>
+                  <tr><td>Color</td><td id="color_row"></td></tr>
+                  <tr><td>Cut</td><td id="cut_row"></td></tr>
+                  <tr><td>Clarity</td><td id="clarity_row"></td></tr>
+                </thead>
+              </table>
           </div>
         </div> <!--end result return container-->
       </div>

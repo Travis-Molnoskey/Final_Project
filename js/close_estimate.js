@@ -4,6 +4,8 @@ let price_btn = d3.select('#price-btn');
 let data = '../data/diamonds.csv'
 let database = []
 
+
+
 function fetch_price(){
     let price = parseFloat(d3.select('#desired_price').property('value'));
     return price
@@ -54,7 +56,7 @@ function cut_avg(list){
         total=total+num
     }
     let average = total/list.length
-
+    
     switch(Math.round(average)){
         case 1:
             cut="Fair"
@@ -109,7 +111,7 @@ function color_avg(list){
         total=total+num
     }
     let average = total/list.length
-
+    
     switch(Math.round(average)){
         case 1:
             color="J"
@@ -173,7 +175,7 @@ function clarity_avg(list){
         total=total+num
     }
     let average = total/list.length
-
+    
     switch(Math.round(average)){
         case 1:
             clarity="I1"
@@ -212,6 +214,13 @@ function runModel(){
     result = database.filter(function(d){
         return d.price == price
     })
+
+    console.log(result.map(d=>d.id))
+
+
+
+
+
     /*
     number correlations
     "Fair": 1, "Good": 2, "Very Good": 3, "Premium": 4, "Ideal": 5
@@ -219,16 +228,30 @@ function runModel(){
     "I1": 1, "SI2": 2, "SI1": 3, "VS2": 4, "VS1": 5, "VVS2": 6, "VVS1":7, "IF":8
     */  
     // code for average carat: avg(result.map(d=>parseFloat(d.carat)))
+    let average_carat = avg(result.map(d=>parseFloat(d.carat)))
+    let carat_table = document.getElementById("carat_row");
+    carat_table.textContent = numeral(average_carat).format('0.00')
     console.log(avg(result.map(d=>parseFloat(d.carat))))
 
     //calculate average clarity
+    let average_clarity = clarity_avg(result.map(d=>d.clarity))
+    let clarity_table = document.getElementById("clarity_row");
+    clarity_table.textContent = average_clarity
     console.log(clarity_avg(result.map(d=>d.clarity)))
 
     //calculate average cut
+    let average_cut = cut_avg(result.map(d=>d.clarity))
+    let cut_table = document.getElementById("cut_row");
+    cut_table.textContent = average_cut
     console.log(cut_avg(result.map(d=>d.clarity)))
 
     //calculate average color
+    let average_color = color_avg(result.map(d=>d.color))
+    let color_table = document.getElementById("color_row");
+    color_table.textContent = average_color
     console.log(color_avg(result.map(d=>d.color)))
+
+
 
 };
 
