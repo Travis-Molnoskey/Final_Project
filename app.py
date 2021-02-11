@@ -10,11 +10,11 @@ model = p.load(open(modelfile, 'rb'))
 # render default webpage
 @app.route('/')
 def home():
-    return render_template('FourCPriceEstimate.html')
-
-@app.route('/index.html')
-def index():
     return render_template('index.html')
+
+@app.route('/FourCPriceEstimate.html')
+def index():
+    return render_template('FourCPriceEstimate.html')
 
 @app.route('/comparison.html')
 def comparison():
