@@ -73,6 +73,8 @@ function cut_avg(list){
         case 5:
             cut="Ideal"
             break;
+        default:
+            cut="unavailable"
         }
 
     return cut
@@ -134,6 +136,8 @@ function color_avg(list){
         case 7:
             color="D"
             break;
+        default:
+            color="unavailable"
     }
 
     return color
@@ -201,6 +205,8 @@ function clarity_avg(list){
         case 8:
             clarity="IF"
             break;
+        default:
+            clarity="unavailable"
     }
 
     return clarity
@@ -213,13 +219,30 @@ function runModel(){
     
     result = database.filter(function(d){
         return d.price == price
-    })
+    });
+    
+    while (result.length == 0){
+        price = price+1
+        result = database.filter(function(d){
+            return d.price == price
+        });
 
-    console.log(result.map(d=>d.id))
+    }
 
 
+    let max_id = 0
+    let id_match = result.map(d=>parseInt(d.id))
+    max_id = id_match.reduce((a,b)=>Math.max(a,b))
+    let id_array = []
 
-
+    for (let i = 0; i < 20; i++) {
+        id_array.push(max_id-i)
+    }
+    
+    let final_result = []
+    id_array.forEach(d => {
+        final_result.push(database[d-1])
+    });
 
     /*
     number correlations
@@ -228,28 +251,28 @@ function runModel(){
     "I1": 1, "SI2": 2, "SI1": 3, "VS2": 4, "VS1": 5, "VVS2": 6, "VVS1":7, "IF":8
     */  
     // code for average carat: avg(result.map(d=>parseFloat(d.carat)))
-    let average_carat = avg(result.map(d=>parseFloat(d.carat)))
+    let average_carat = avg(final_result.map(d=>parseFloat(d.carat)))
     let carat_table = document.getElementById("carat_row");
     carat_table.textContent = numeral(average_carat).format('0.00')
-    console.log(avg(result.map(d=>parseFloat(d.carat))))
+    //console.log(avg(final_result.map(d=>parseFloat(d.carat))))
 
     //calculate average clarity
-    let average_clarity = clarity_avg(result.map(d=>d.clarity))
+    let average_clarity = clarity_avg(final_result.map(d=>d.clarity))
     let clarity_table = document.getElementById("clarity_row");
     clarity_table.textContent = average_clarity
-    console.log(clarity_avg(result.map(d=>d.clarity)))
+    //console.log(clarity_avg(final_result.map(d=>d.clarity)))
 
     //calculate average cut
-    let average_cut = cut_avg(result.map(d=>d.clarity))
+    let average_cut = cut_avg(final_result.map(d=>d.cut))
     let cut_table = document.getElementById("cut_row");
     cut_table.textContent = average_cut
-    console.log(cut_avg(result.map(d=>d.clarity)))
+    //console.log(cut_avg(final_result.map(d=>d.cut)))
 
     //calculate average color
-    let average_color = color_avg(result.map(d=>d.color))
+    let average_color = color_avg(final_result.map(d=>d.color))
     let color_table = document.getElementById("color_row");
     color_table.textContent = average_color
-    console.log(color_avg(result.map(d=>d.color)))
+    //console.log(color_avg(final_result.map(d=>d.color)))
 
 
 
