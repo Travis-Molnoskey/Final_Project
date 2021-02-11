@@ -12,7 +12,7 @@ model = p.load(open(modelfile, 'rb'))
 def home():
     return render_template('index.html')
 
-@app.route('/FourCPriceEstimate.html.html')
+@app.route('/FourCPriceEstimate.html')
 def index():
     return render_template('FourCPriceEstimate.html')
 
