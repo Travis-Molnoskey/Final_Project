@@ -93,14 +93,112 @@
           <hr>
           <div class='pannel-body'>
             <form action='/predict' method ='POST'>
-
-
+              <!-- old input style-->
               <input type="text" name="carat" placeholder="carat" required="required" />
               <input type="text" name="cut" placeholder="cut" required="required" />
               <input type="text" name="clarity" placeholder="clarity" required="required" />
               <input type="text" name="color" placeholder="color" required="required" />
               <button type="submit" class="btn btn-default btn-block btn-primary">Predict Diamond Price</button>
               
+              <!--new input style-->
+              <!--<div class="form-group">
+                <li class='filter list-group-item'>
+                  <label for='carat_weight'>Carat Weight</label>
+                  <input class='form-control' id='carat_weight'
+                    type='number' placeholder='Input Carat Weight [0-10]'
+                    min='0' max='10' step='0.01'
+                    required='required' onchange='updateUserInputFilters()'>
+                </li> --><!--end carat weight-->
+                <!--<li class='filter list-group-item'>
+                  <label for='cut'>Cut</label>
+                  <select class='form-control' id='cut' type='text' required='required' onchange='updateUserInputFilters()'>
+                    <option value="" selected disabled>Select a Cut</option>
+                    <option>Ideal</option>
+                    <option>Premium</option>
+                    <option>Very Good</option>
+                    <option>Good</option>
+                    <option>Fair</option>
+                  </select>
+                </li>--> <!--cut input-->
+                <!--<li class='filter list-group-item'>
+                  <label for='color'>Color</label>
+                  <select class='form-control' id='color' type='text' required='required' onchange='updateUserInputFilters()'>
+                    <option value="" selected disabled>Select a Color</option>
+                    <option>D</option>
+                    <option>E</option>
+                    <option>F</option>
+                    <option>G</option>
+                    <option>H</option>
+                    <option>I</option>
+                    <option>J</option>
+                    <option>K</option>
+                    <option>L</option>
+                    <option>M</option>-->
+                    <!-- <option>N</option>
+                    <option>O</option>
+                    <option>P</option>
+                    <option>Q</option>
+                    <option>R</option>
+                    <option>S</option>
+                    <option>T</option>
+                    <option>U</option>
+                    <option>V</option>
+                    <option>W</option>
+                    <option>X</option>
+                    <option>Y</option>
+                    <option>Z</option> -->
+                  <!--</select>
+                </li>--> <!--end color-->
+                <!--<li class='filter list-group-item'>
+                  <label for='clarity'>Clarity</label>
+                  <select class='form-control' id='clarity' type='text' required='required' onchange='updateUserInputFilters()'>
+                    <option value="" selected disabled>Select a Clarity</option>
+                    <option value="IF">Internally Flawless</option>
+                    <option>VVS1</option>
+                    <option>VVS2</option>
+                    <option>VS1</option>
+                    <option>VS2</option>
+                    <option>SI1</option>
+                    <option>SI2</option>
+                    <option>I1</option>
+                    <option>I2</option>
+                    <option>I3</option>
+                  </select>
+                </li>--> <!--end clarity-->
+                <!-- <li class='filter list-group-item'>
+                  <label for='x_length'>X-Length</label>
+                  <input class='form-control' id='x_length'
+                    type='number' placeholder='Input Length [0-15]'
+                    min='0' max='15' step='0.01'
+                    required='required' onchange='updateUserInputFilters()'>
+                </li> end x length -->
+                <!-- <li class='filter list-group-item'>
+                  <label for='y_width'>Y-Width</label>
+                  <input class='form-control' id='y_width'
+                  type='number' placeholder='Input Width [0-75]'
+                  min='0' max='75' step='0.01'
+                  required='required' onchange='updateUserInputFilters()'>
+                </li> end y width -->
+                <!-- <li class='filter list-group-item'>
+                  <label for='z_depth'>Z-Depth</label>
+                  <input class='form-control' id='z_depth'
+                  type='number' placeholder='Input Depth [0-40]'
+                  min='0' max='40' step='0.01'
+                  required='required' onchange='updateUserInputFilters()'>
+                </li> end z depth -->
+                <!-- <li class='filter list-group-item'>
+                  <label for='depthPercent'>Total Depth Percentage</label>
+                  <input disabled class='form-control' id='depthPercent' type='number'>
+                </li> end depth -->
+                <!-- <li class='filter list-group-item'>
+                  <label for='table_width'>Table Width</label>
+                  <input class='form-control' id='table_width'
+                  type='number' placeholder='Input Table Width [0-100]'
+                  min='0' max='40' step='0.01'
+                  required='required' onchange='updateUserInputFilters()'>
+                </li> end table width -->
+                <!--<button id="filter-btn" type="button" class="btn btn-default btn-block btn-primary">Predict Diamond Price</button>
+              </div>--> <!-- end form-group class-->
             </form>
           </div>
         </div> <!--end user input container-->
