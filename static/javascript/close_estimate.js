@@ -26,7 +26,6 @@ function load_database(){
     d3.csv(data, function(d){
         database.push(d)
     })
-
 };
 
 function cut_avg(list){
@@ -216,18 +215,27 @@ function runModel(){
     let price = fetch_price()
     console.log('price', price)
     let result = []
+    let final_result = []
 
-    console.log(database)
-    database = database.sort((a,b)=>parseFloat(a.price)-parseFloat(b.price));
-    console.log(database)
+    database = database.sort((a,b)=>parseInt(a.price)-parseInt(b.price));
+
+    for (let w = 0; w < database.length; w++) {
+        database[w].id = `${w}`
+    }
 
     result = database.filter(function(d){
         return d.price == price
     });
+    
+    if (price<300){
+        price = 300;
+    }else if(price>30000){
+        price = 30000;
+    };
+
     let j = 0
-   
     while (result.length == 0 && j < 100){
-        price = price+5
+        price = price+1
         result = database.filter(function(d){
             return d.price == price
         });
@@ -237,28 +245,49 @@ function runModel(){
     if (j >= 100){
         console.log('working')
         price = fetch_price()
+        if (price<300){
+            price = 300;
+        }else if(price>30000){
+            price = 30000;
+        };
         while (result.length == 0){
-            price = price-5
+            price = price-1
             result = database.filter(function(d){
                 return d.price == price
             });
         }
-    }
+        console.log(price)
+        let min_id = 0
+        let id_match = result.map(d=>parseInt(d.id))
+        min_id = id_match.reduce((a,b)=>Math.max(a,b))
+        let id_array = []
     
+        for (let i = 0; i < 20; i++) {
+            id_array.push(min_id-i)
+        }
+        console.log(id_array)
+        id_array.forEach(d => {
+            final_result.push(database[d])
+        });
 
-    let min_id = 0
-    let id_match = result.map(d=>parseInt(d.id))
-    min_id = id_match.reduce((a,b)=>Math.max(a,b))
-    let id_array = []
+    } else if (j<100){
+        console.log('j<100')
+        let min_id = 0
+        let id_match = result.map(d=>parseInt(d.id))
+        min_id = id_match.reduce((a,b)=>Math.max(a,b))
+        let id_array = []
 
-    for (let i = 0; i < 20; i++) {
-        id_array.push(min_id+i)
-    }
-    
-    let final_result = []
-    id_array.forEach(d => {
-        final_result.push(database[d-2])
-    });
+        for (let i = 0; i < 20; i++) {
+            id_array.push(min_id+i)
+        }
+        
+        id_array.forEach(d => {
+            final_result.push(database[d-1])
+        });
+
+    };
+
+    console.log(result)
 
     console.log(final_result)
 
