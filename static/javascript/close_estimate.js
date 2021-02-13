@@ -216,33 +216,51 @@ function runModel(){
     let price = fetch_price()
     console.log('price', price)
     let result = []
-    
+
+    console.log(database)
+    database = database.sort((a,b)=>parseFloat(a.price)-parseFloat(b.price));
+    console.log(database)
+
     result = database.filter(function(d){
         return d.price == price
     });
-    
-    while (result.length == 0){
-        price = price+1
+    let j = 0
+   
+    while (result.length == 0 && j < 100){
+        price = price+5
         result = database.filter(function(d){
             return d.price == price
         });
-
+        j=j+1
     }
 
+    if (j >= 100){
+        console.log('working')
+        price = fetch_price()
+        while (result.length == 0){
+            price = price-5
+            result = database.filter(function(d){
+                return d.price == price
+            });
+        }
+    }
+    
 
-    let max_id = 0
+    let min_id = 0
     let id_match = result.map(d=>parseInt(d.id))
-    max_id = id_match.reduce((a,b)=>Math.max(a,b))
+    min_id = id_match.reduce((a,b)=>Math.max(a,b))
     let id_array = []
 
     for (let i = 0; i < 20; i++) {
-        id_array.push(max_id-i)
+        id_array.push(min_id+i)
     }
     
     let final_result = []
     id_array.forEach(d => {
-        final_result.push(database[d-1])
+        final_result.push(database[d-2])
     });
+
+    console.log(final_result)
 
     /*
     number correlations
@@ -250,6 +268,11 @@ function runModel(){
     "J": 1, "I": 2, "H": 3, "G": 4, "F": 5, "E": 6, "D":7
     "I1": 1, "SI2": 2, "SI1": 3, "VS2": 4, "VS1": 5, "VVS2": 6, "VVS1":7, "IF":8
     */  
+    let average_price = avg(final_result.map(d=>parseFloat(d.price)))
+    let price_table = document.getElementById("price_row");
+    price_table.textContent = numeral(average_price).format('0.00')
+
+
     // code for average carat: avg(result.map(d=>parseFloat(d.carat)))
     let average_carat = avg(final_result.map(d=>parseFloat(d.carat)))
     let carat_table = document.getElementById("carat_row");
